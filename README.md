@@ -4,17 +4,18 @@ Analisis sentimen dan isu komunikasi publik terhadap kebijakan penonaktifan
 peserta PBI JKN berdasarkan desil DTSEN, menggunakan komentar YouTube dari
 kanal berita nasional.
 
-**Dashboard:** [tautan Looker Studio]
-**Ringkasan eksekutif:** [tautan PDF di folder outputs]
+> **Status: dalam pengerjaan.** Dashboard dan ringkasan eksekutif akan
+> ditautkan di sini setelah analisis selesai.
 
 ---
 
 ## 1. Latar Belakang
-Pemerintah memperbarui kepesertaan PBI JKN berdasarkan Data Tunggal Sosial
-Ekonomi Nasional (DTSEN). Peserta di luar kelompok desil penerima bantuan
-dinonaktifkan, sehingga memicu diskusi publik yang luas. Proyek ini
-memetakan sentimen dan isu yang muncul sebagai gambaran risiko komunikasi
-kebijakan.
+Pemerintah memperbarui kepesertaan Penerima Bantuan Iuran Jaminan Kesehatan
+(PBI JK) berdasarkan Data Tunggal Sosial Ekonomi Nasional (DTSEN). Peserta
+yang tidak lagi berada di kelompok desil penerima bantuan dinonaktifkan,
+sehingga memicu diskusi publik yang luas, termasuk kebingungan istilah dan
+isu salah sasaran. Proyek ini memetakan sentimen dan isu yang muncul di
+kolom komentar sebagai gambaran risiko komunikasi kebijakan.
 
 ## 2. Pertanyaan Analisis
 1. Bagaimana distribusi sentimen publik terhadap kebijakan ini?
@@ -26,65 +27,47 @@ kebijakan.
 | Item | Keterangan |
 |---|---|
 | Sumber | Komentar YouTube (YouTube Data API v3) |
-| Kanal | [KompasTV, Najwa Shihab, CNN Indonesia, Narasi] |
-| Jumlah video | [..] (daftar lengkap di `data/daftar_video.csv`) |
-| Periode analisis | [Feb 2026] dan [Okt-Nov 2026] |
-| Tanggal pengambilan data | [..] |
-| Komentar mentah | [..] |
-| Setelah cleaning dan filter relevansi | [..] |
+| Kanal | KompasTV, Najwa Shihab, CNN Indonesia, Narasi |
+| Periode analisis | Februari 2026 dan Oktober-November 2026 |
+| Jumlah video | _akan diisi_ |
+| Tanggal pengambilan data | _akan diisi_ |
+| Komentar mentah | _akan diisi_ |
+| Setelah cleaning dan filter relevansi | _akan diisi_ |
 
 Username pengguna tidak disimpan untuk menjaga privasi.
 
-## 4. Metodologi
-1. **Pengumpulan data:** pengambilan komentar via YouTube Data API
-2. **Cleaning:** hapus duplikat, URL, dan komentar terlalu pendek; normalisasi
-   slang; filter relevansi topik
-3. **Sentimen:** model pre-trained [nama model] (positif/netral/negatif)
-4. **Validasi:** pelabelan manual [..] komentar sampel, akurasi [..]%
-5. **Analisis aspek:** klasifikasi berbasis kamus kata kunci
-   (akurasi data, reaktivasi, keadilan, kebingungan desil, kepercayaan)
-6. **Visualisasi:** dashboard Looker Studio
+## 4. Metodologi (rencana)
+1. Pengumpulan komentar via YouTube Data API
+2. Cleaning: hapus duplikat, URL, komentar terlalu pendek; normalisasi slang;
+   filter relevansi topik
+3. Klasifikasi sentimen (positif/netral/negatif) dengan model pre-trained
+4. Validasi dengan pelabelan manual pada sampel komentar
+5. Klasifikasi aspek berbasis kamus kata kunci
+6. Visualisasi dengan dashboard Looker Studio
 
 ## 5. Temuan Utama
-- [Temuan 1, dengan angka]
-- [Temuan 2, dengan angka]
-- [Temuan 3, dengan angka]
+_Akan diisi setelah analisis selesai._
 
 ## 6. Rekomendasi Komunikasi
-- [..]
-- [..]
+_Akan diisi setelah analisis selesai._
 
 ## 7. Limitasi
 - Komentar YouTube hanya mewakili audiens kanal tertentu, bukan seluruh publik
-- Model sentimen kesulitan mendeteksi sarkasme dan slang
-- Kemungkinan ada komentar dari akun bot
-- Klasifikasi aspek berbasis kata kunci dapat melewatkan konteks
-- Kebijakan terus berubah; analisis mencerminkan kondisi per [tanggal]
+- Model sentimen dapat kesulitan mendeteksi sarkasme dan slang
+- Kemungkinan terdapat komentar dari akun bot
+- Klasifikasi berbasis kata kunci dapat melewatkan konteks
+- Kebijakan terus berubah; analisis mencerminkan kondisi pada tanggal
+  pengambilan data
 
 ## 8. Struktur Repo
-```
-├── data/
-│   ├── daftar_video.csv
-│   └── komentar_bersih_anonim.csv
-├── notebooks/
-│   ├── 01_pengambilan_data.ipynb
-│   ├── 02_cleaning.ipynb
-│   ├── 03_sentimen.ipynb
-│   └── 04_analisis_aspek.ipynb
-├── outputs/
-│   └── ringkasan_eksekutif.pdf
-└── README.md
-```
+- `data/` : daftar video dan data komentar (versi anonim)
+- `notebooks/` : notebook pengambilan data hingga analisis
+- `outputs/` : ringkasan eksekutif dan visualisasi
+- `requirements.txt` : daftar pustaka Python
 
-## 9. Cara Menjalankan
-1. Clone repo ini
-2. Instal dependensi: `pip install -r requirements.txt`
-3. Isi API key YouTube di file `.env` (tidak disertakan di repo)
-4. Jalankan notebook sesuai urutan
-
-## 10. Tools
+## 9. Tools
 Python (pandas, transformers, Sastrawi), YouTube Data API v3,
 Google Sheets, Looker Studio
 
 ## Kontak
-Tegar Haryo | [LinkedIn] | haryotegar14@gmail.com
+Tegar Haryo | [LinkedIn](https://linkedin.com/in/tegarharyo) | haryotegar14@gmail.com
